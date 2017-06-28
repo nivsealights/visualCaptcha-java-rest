@@ -126,7 +126,7 @@
                 </executions>
                 <!-- for elements see http://maven.apache.org/surefire/maven-failsafe-plugin/integration-test-mojo.html -->
                 <configuration>
-                    <argLine>-javaagent:{sl.testListenerPath} -Dsl.token=${SL_TOKEN} -Dsl.buildSessionId=${SL_BUILD_SESSION_ID} -sl.testStage="Integration Tests"</argLine>
+                    <argLine>-javaagent:${sl.testListenerPath} -Dsl.token=${SL_TOKEN} -Dsl.buildSessionId=${SL_BUILD_SESSION_ID} -sl.testStage="Integration Tests"</argLine>
                     <!-- all it it packacke -->
                     <includes>
                         <include>${maven.failsafe.include}</include>
