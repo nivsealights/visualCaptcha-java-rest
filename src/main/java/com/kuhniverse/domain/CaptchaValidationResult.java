@@ -16,9 +16,9 @@ public enum CaptchaValidationResult {
     INSUFFICIENT_OPTION_COUNT(true),
     OTHER_ERROR(true);
 
-    boolean failed = false;
+    boolean failed = true; // false
     CaptchaValidationResult(boolean failed) {
-        this.failed = failed;
+        this.failed = !failed;
     }
 
     CaptchaValidationResult() {
