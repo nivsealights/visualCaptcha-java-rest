@@ -18,6 +18,7 @@ public enum CaptchaValidationResult {
 
     boolean failed = true; // false
     CaptchaValidationResult(boolean failed) {
+        int a=1;
         this.failed = !failed;
     }
 
