@@ -27,9 +27,7 @@
         <spring.version>4.1.6.RELEASE</spring.version>
         <docker.image.prefix>captcha</docker.image.prefix>
         <maven.surefire.version>2.17</maven.surefire.version>
-        <maven.failsafe.version>2.17</maven.failsafe.version>
-        <maven.surefire.include>com/kuhniverse/ut/**/*.java</maven.surefire.include>
-        <maven.failsafe.include>com/kuhniverse/it/**/*.java</maven.failsafe.include>
+        <maven.surefire.include>com/kuhniverse/selenium/**/*.java</maven.surefire.include>
     </properties>
 
     <ciManagement>
@@ -94,6 +92,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                	<jvmArguments>-javaagent:D:\dev\gitHub_clones\visualCaptcha-java-rest\sl-test-listener-1.9.487.jar -Dsl.tokenFile=D:\dev\gitHub_clones\visualCaptcha-java-rest\sl_token.txt -Dsl.buildSessionId=737acd2265be14b06d347c28fb36b0e0 -Dsl.log.enabled=true -Dsl.log.level=info -Dsl.log.toFile=true -Dsl.log.folder=D:\dev\gitHub_clones\visualCaptcha-java-rest\sllogs -Dsl.featuresData.enableHttpColoring=true</jvmArguments>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -102,43 +103,6 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                </configuration>
-            </plugin>
-            <!-- Configure failsafe plugin for Integration  -->
-            <!-- SEE ALSO PROFILE SPECIFIC CONFIGURATION_ERROR FOR coverafe !!! -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${maven.failsafe.version}</version>
-                <executions>
-                    <execution>
-                        <id>integration-test</id>
-                        <goals>
-                            <goal>integration-test</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>verify</id>
-                        <goals>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <!-- for elements see http://maven.apache.org/surefire/maven-failsafe-plugin/integration-test-mojo.html -->
-                <configuration>
-                    <argLine>-javaagent:${sl.testListenerPath} -Dsl.token=${SL_TOKEN} -Dsl.buildSessionId=${SL_BUILD_SESSION_ID} -Dsl.testStage="Integration Tests"</argLine>
-                    <!-- all it it packacke -->
-                    <includes>
-                        <include>${maven.failsafe.include}</include>
-                    </includes>
-                    <!--
-                    <destFile>${sonar.jacoco.itReportPath}</destFile>
-                    <forkCount>1</forkCount>
-                    <forkedProcessTimeoutInSeconds>1200</forkedProcessTimeoutInSeconds>
-                    <argLine>-XX:MaxPermSize=128m -Xmx256m</argLine>
-                    -->
-                    <!-- Force alphabetical order to have a reproducible build -->
-                    <runOrder>alphabetical</runOrder>
                 </configuration>
             </plugin>
             <plugin>
@@ -192,5 +156,43 @@
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
-
+    <profiles>
+		<profile>
+           <id>sealights</id>
+           <build>
+               <plugins>
+                     <plugin>
+                        <groupId>io.sealights.on-premise.agents.plugin</groupId>
+                        <artifactId>sealights-maven-plugin</artifactId>
+                        <version>1.4.12</version>
+                        <configuration>
+                            <tokenFile>D:\dev\gitHub_clones\visualCaptcha-java-rest\sl_token.txt</tokenFile>
+                            <buildSessionId>737acd2265be14b06d347c28fb36b0e0</buildSessionId>
+                            <createBuildSessionId>false</createBuildSessionId>
+                            <moduleName>${project.name}</moduleName>
+                            <workspacepath>${project.build.outputDirectory}</workspacepath>
+                            <filesincluded>*.class</filesincluded>
+                            <filesStorage>/tmp</filesStorage>
+                            <filesexcluded>*test-classes*</filesexcluded>
+                            <logEnabled>false</logEnabled>
+                            <logLevel>INFO</logLevel>
+                            <testStage>Selenium Tests</testStage>
+                            <metadata>
+                                <jobName>${JOB_NAME}</jobName>
+                                <logsUrl>${BUILD_URL}/console</logsUrl>
+                            </metadata>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>a2</id>
+                                <goals>
+                                    <goal>test-listener</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+               </plugins>
+           </build>
+		</profile>
+    </profiles>
 </project>
