@@ -44,7 +44,7 @@ public class CaptchaController {
     @RequestMapping(value = "/start/{howMany}", method = RequestMethod.GET)
     @ResponseBody
     public CaptchaFrontEndData start(@PathVariable int howMany) {
-        int nadav = 1;
+        int nadav = 3;
         return captchaSession.start(howMany);
     }
 
