@@ -1,0 +1,12 @@
+[
+  {
+    "appName": "VisualCaptchaSelenium_PTC",
+    "build": "18",
+    "branch": "origin/master"
+  },
+  {
+    "appName": "VisualCaptchaSeleniumWeb_PTC",
+    "build": "12",
+    "branch": "origin/master"
+  }
+]

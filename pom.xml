@@ -94,7 +94,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                	<jvmArguments>-javaagent:sl-test-listener-1.9.487.jar -Dsl.tokenFile=sl_token.txt -Dsl.buildSessionIdFile=buildSessionId -Dsl.log.enabled=true -Dsl.log.level=info -Dsl.log.toFile=true -Dsl.includes=com.kuhniverse.* -Dsl.log.folder=sllogs -Dsl.featuresData.enableHttpColoring=true</jvmArguments>
+                	<jvmArguments>-javaagent:sl-test-listener-1.9.504.jar -Dsl.tokenFile=sl_token.txt -Dsl.buildSessionIdFile=buildSessionId -Dsl.log.enabled=true -Dsl.log.level=info -Dsl.log.toFile=true -Dsl.includes=com.kuhniverse.* -Dsl.log.folder=sllogs -Dsl.featuresData.enableHttpColoring=true</jvmArguments>
                 </configuration>
             </plugin>
             <plugin>
