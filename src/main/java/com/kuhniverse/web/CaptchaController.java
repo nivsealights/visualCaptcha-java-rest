@@ -44,7 +44,7 @@ public class CaptchaController {
     @RequestMapping(value = "/start/{howMany}", method = RequestMethod.GET)
     @ResponseBody
     public CaptchaFrontEndData start(@PathVariable int howMany) {
-        int nadav = 4;
+        int nadav = 5;
         return captchaSession.start(howMany);
     }
 
@@ -55,7 +55,7 @@ public class CaptchaController {
     @RequestMapping(value = "/image/{index}", method = RequestMethod.GET)
     // RequestParam boolean retina
     public void image(@PathVariable int index, HttpServletResponse response) {
-        int nadav = 4;
+        int nadav = 5;
         boolean retina = false; // TODO Implement
         InputStream input = captchaSession.getImage(index, retina);
         MediaType contentType = MediaType.IMAGE_PNG;
