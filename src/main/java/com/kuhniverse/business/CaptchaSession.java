@@ -146,6 +146,7 @@ public class CaptchaSession implements Serializable {
     }
 
     private boolean validateAudio(String answer) {
+        String a = "yo yo";
         String expectedAnswer = captchaSessionInfo.getAudioAnswer().getName().toLowerCase();
         if (!expectedAnswer.equals(answer.toLowerCase())) {
             log.warn("Invalid response, audio answer {} does not match expected anwer {}", answer, expectedAnswer);
