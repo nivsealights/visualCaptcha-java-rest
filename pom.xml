@@ -94,7 +94,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                	<jvmArguments>-javaagent:sl-test-listener-1.9.504.jar -Dsl.tokenFile=sl_token.txt -Dsl.buildSessionIdFile=buildSessionId.txt -Dsl.log.enabled=true -Dsl.log.level=info -Dsl.log.toFile=true -Dsl.includes=com.kuhniverse.* -Dsl.log.folder=sllogs -Dsl.featuresData.enableHttpColoring=true -Dsl.useInitialColor=false</jvmArguments>
+                	<jvmArguments>-javaagent:sl-test-listener-1.9.550.jar -Dsl.tokenFile=sl_token.txt -Dsl.buildSessionIdFile=buildSessionId.txt -Dsl.log.enabled=true -Dsl.log.level=info -Dsl.log.toFile=true -Dsl.includes=com.kuhniverse.* -Dsl.log.folder=sllogs -Dsl.featuresData.enableHttpColoring=true -Dsl.useInitialColor=false</jvmArguments>
                 </configuration>
             </plugin>
             <plugin>
@@ -168,7 +168,7 @@
                      <plugin>
                         <groupId>io.sealights.on-premise.agents.plugin</groupId>
                         <artifactId>sealights-maven-plugin</artifactId>
-                        <version>1.4.13</version>
+                        <version>1.5.1</version>
                         <configuration>
                             <tokenFile>sl_token.txt</tokenFile>
                             <buildSessionIdFile>buildSessionId</buildSessionIdFile>
@@ -209,7 +209,7 @@
                      <plugin>
                         <groupId>io.sealights.on-premise.agents.plugin</groupId>
                         <artifactId>sealights-maven-plugin</artifactId>
-                        <version>1.4.13</version>
+                        <version>1.5.1</version>
                         <configuration>
                             <tokenFile>sl_token.txt</tokenFile>
                             <buildSessionIdFile>buildSessionId.txt</buildSessionIdFile>
