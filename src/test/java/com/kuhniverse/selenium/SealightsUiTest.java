@@ -20,7 +20,7 @@ public class SealightsUiTest extends Locomotive {
         mainPage.enterName("moise");
         mainPage.selectItem(1);
         mainPage.submitForm();
-        Assert.assertFalse(false);
+        Assert.assertFalse(true);
     }
     @Test
     public void testSimon() throws InterruptedException {
