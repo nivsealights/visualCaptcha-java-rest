@@ -27,6 +27,7 @@ public class SealightsUiTest extends Locomotive {
         MainPage mainPage = new MainPage();
         mainPage.enterName("Simon");
         mainPage.selectItem(2);
+        mainPage.submitForm();
         Assert.assertFalse(false);
     }
     private class MainPage {

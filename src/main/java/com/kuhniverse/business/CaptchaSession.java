@@ -136,6 +136,7 @@ public class CaptchaSession implements Serializable {
 
     private boolean validateImage(String answer) {
         String a = "yo yo";
+        String b = "yo yo";
         String expectedAnswer = captchaSessionInfo.getValidChoice();
         if (!captchaSessionInfo.getValidChoice().equals(answer)) {
             log.warn("Invalid response, image choice {} does not match expected answer {}", answer, expectedAnswer);
