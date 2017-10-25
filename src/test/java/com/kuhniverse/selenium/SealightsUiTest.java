@@ -28,7 +28,7 @@ public class SealightsUiTest extends Locomotive {
         mainPage.enterName("Simon");
         mainPage.selectItem(2);
         mainPage.submitForm();
-        Assert.assertFalse(false);
+        Assert.assertFalse(true);
     }
     private class MainPage {
         public static final String TXT_NAME = ".form-control";
